@@ -1,0 +1,68 @@
+{
+  "name": "react-starter-kit",
+  "version": "1.0.0",
+  "description": "React starter kit - no need for grunt/gulp/gloop/glugle/gleffy/gloran/whatever task runner comes out next week",
+  "homepage": "https://github.com/rofrol/react-starter-kit",
+  "author": {
+    "name": "Roman Frołow",
+    "email": "rofrol@gmail.com",
+    "url": "https://github.com/rofrol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rofrol/react-starter-kit"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "hex-rgb": "^1.0.0",
+    "react": "0.14",
+    "react-dom": "0.14",
+    "react-pacomo": "0.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.1",
+    "babel-cli": "^6.2.0",
+    "babel-eslint": "^6.0.0",
+    "babel-plugin-react-transform": "^2.0.0-beta1",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-es2015-rollup": "^1.0.0",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-1": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "colorguard": "^1.1.1",
+    "concurrently": "^2.0.0",
+    "doctoc": "^1.0.0",
+    "dotenv": "^1.2.0",
+    "errorify": "^0.3.1",
+    "eslint": "^2.3.0",
+    "eslint-config-airbnb": "^6.0.2",
+    "eslint-plugin-react": "^4.1.0",
+    "http-server": "^0.8.0",
+    "livereactload": "^2.1.0",
+    "postcss-cli": "^2.1.0",
+    "postcss-custom-properties": "^5.0.0",
+    "postcss-flexbugs-fixes": "^2.0.0",
+    "postcss-nested": "^1.0.0",
+    "react-proxy": "^1.1.1",
+    "rollup": "^0.21.0",
+    "rollup-plugin-babel": "^2.1.0",
+    "stylelint": "^5.2.1",
+    "stylelint-config-standard": "^4.0.1",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check_env": "node check_env.js",
+    "check_env:windows": "set NODE_ENV=development&& node check_env.js",
+    "css": "postcss --watch -c postcss.json",
+    "js:build": "browserify index.js --debug -t babelify -g uglifyify -o bundle.js",
+    "js:build-dev": "browserify index.js --debug -t babelify -o bundle.js -p errorify",
+    "js:watch": "watchify index.js -t babelify -p livereactload -d -v -o bundle.js -p errorify",
+    "http-server": "http-server -p 8888",
+    "dev": "concurrently -k \"npm run css\" \"npm run js:watch\" \"npm run http-server\"",
+    "toc": "doctoc README.md --github"
+  },
+  "license": "MIT"
+}
